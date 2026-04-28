@@ -1,0 +1,51 @@
+{
+  "name": "Structured JSON Output",
+  "system_prompt": "You are a data extraction assistant. When asked to extract or structure information, always respond with valid JSON only. Do not include any explanation, markdown fences, or extra text — just the raw JSON object.",
+  "test_cases": [
+    {
+      "id": "json_001",
+      "description": "Extract person info to JSON",
+      "input": "Extract the following into JSON with keys 'name', 'age', 'city': Jane Smith is 32 years old and lives in Boston.",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": ["Jane", "32", "Boston"]
+      }
+    },
+    {
+      "id": "json_002",
+      "description": "Extract product info to JSON",
+      "input": "Extract into JSON with keys 'product', 'price', 'in_stock': The blue widget costs $14.99 and is currently available.",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": ["widget", "14.99"]
+      }
+    },
+    {
+      "id": "json_003",
+      "description": "Extract list of items to JSON array",
+      "input": "Return a JSON array of the fruits mentioned: I bought apples, bananas, and mangoes at the market.",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": ["apples", "bananas", "mangoes"]
+      }
+    },
+    {
+      "id": "json_004",
+      "description": "Sentiment classification as JSON",
+      "input": "Classify the sentiment of this review as JSON with key 'sentiment' (positive/negative/neutral): 'The product was okay, nothing special but not terrible either.'",
+      "rubric": {
+        "format_json": true,
+        "contains_any_of": ["neutral", "positive", "negative"]
+      }
+    },
+    {
+      "id": "json_005",
+      "description": "Event extraction to JSON",
+      "input": "Extract into JSON with keys 'event', 'date', 'location': The annual summit will be held on March 15, 2026 in Chicago.",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": ["summit", "2026", "Chicago"]
+      }
+    }
+  ]
+}
