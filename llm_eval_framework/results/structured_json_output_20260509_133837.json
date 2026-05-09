@@ -1,0 +1,188 @@
+{
+  "summary": {
+    "suite_name": "Structured JSON Output",
+    "model": "claude-haiku-4-5-20251001",
+    "timestamp": "2026-05-09T13:38:37.692050",
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "pass_rate": 1.0,
+    "avg_score": 1.0
+  },
+  "results": [
+    {
+      "id": "json_001",
+      "description": "Extract person info to JSON",
+      "input": "Extract the following into JSON with keys 'name', 'age', 'city': Jane Smith is 32 years old and lives in Boston.",
+      "output": "```json\n{\n  \"name\": \"Jane Smith\",\n  \"age\": 32,\n  \"city\": \"Boston\"\n}\n```",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": [
+          "Jane",
+          "32",
+          "Boston"
+        ]
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "format_json": {
+            "passed": true,
+            "message": "valid JSON"
+          },
+          "contains_keywords": {
+            "passed": true,
+            "message": "all keywords found"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 2
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 83,
+        "output_tokens": 36
+      }
+    },
+    {
+      "id": "json_002",
+      "description": "Extract product info to JSON",
+      "input": "Extract into JSON with keys 'product', 'price', 'in_stock': The blue widget costs $14.99 and is currently available.",
+      "output": "```json\n{\n  \"product\": \"blue widget\",\n  \"price\": \"$14.99\",\n  \"in_stock\": true\n}\n```",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": [
+          "widget",
+          "14.99"
+        ]
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "format_json": {
+            "passed": true,
+            "message": "valid JSON"
+          },
+          "contains_keywords": {
+            "passed": true,
+            "message": "all keywords found"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 2
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 84,
+        "output_tokens": 38
+      }
+    },
+    {
+      "id": "json_003",
+      "description": "Extract list of items to JSON array",
+      "input": "Return a JSON array of the fruits mentioned: I bought apples, bananas, and mangoes at the market.",
+      "output": "```json\n[\n  \"apples\",\n  \"bananas\",\n  \"mangoes\"\n]\n```",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": [
+          "apples",
+          "bananas",
+          "mangoes"
+        ]
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "format_json": {
+            "passed": true,
+            "message": "valid JSON"
+          },
+          "contains_keywords": {
+            "passed": true,
+            "message": "all keywords found"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 2
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 75,
+        "output_tokens": 29
+      }
+    },
+    {
+      "id": "json_004",
+      "description": "Sentiment classification as JSON",
+      "input": "Classify the sentiment of this review as JSON with key 'sentiment' (positive/negative/neutral): 'The product was okay, nothing special but not terrible either.'",
+      "output": "```json\n{\n  \"sentiment\": \"neutral\"\n}\n```",
+      "rubric": {
+        "format_json": true,
+        "contains_any_of": [
+          "neutral",
+          "positive",
+          "negative"
+        ]
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "format_json": {
+            "passed": true,
+            "message": "valid JSON"
+          },
+          "contains_any_of": {
+            "passed": true,
+            "message": "found: ['neutral']"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 2
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 87,
+        "output_tokens": 19
+      }
+    },
+    {
+      "id": "json_005",
+      "description": "Event extraction to JSON",
+      "input": "Extract into JSON with keys 'event', 'date', 'location': The annual summit will be held on March 15, 2026 in Chicago.",
+      "output": "```json\n{\n  \"event\": \"annual summit\",\n  \"date\": \"March 15, 2026\",\n  \"location\": \"Chicago\"\n}\n```",
+      "rubric": {
+        "format_json": true,
+        "contains_keywords": [
+          "summit",
+          "2026",
+          "Chicago"
+        ]
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "format_json": {
+            "passed": true,
+            "message": "valid JSON"
+          },
+          "contains_keywords": {
+            "passed": true,
+            "message": "all keywords found"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 2
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 86,
+        "output_tokens": 42
+      }
+    }
+  ]
+}

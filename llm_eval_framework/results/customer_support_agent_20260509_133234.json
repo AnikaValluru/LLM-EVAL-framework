@@ -1,0 +1,228 @@
+{
+  "summary": {
+    "suite_name": "Customer Support Agent",
+    "model": "claude-haiku-4-5-20251001",
+    "timestamp": "2026-05-09T13:32:34.188229",
+    "total": 5,
+    "passed": 0,
+    "failed": 5,
+    "pass_rate": 0.0,
+    "avg_score": 0.5833333333333333
+  },
+  "results": [
+    {
+      "id": "cs_001",
+      "description": "Refund request \u00e2\u20ac\u201d must acknowledge and offer next step",
+      "input": "I was charged twice for my subscription last month. I want a refund.",
+      "output": "",
+      "rubric": {
+        "contains_keywords": [
+          "refund",
+          "apologize"
+        ],
+        "contains_any_of": [
+          "billing team",
+          "look into",
+          "investigate",
+          "resolve"
+        ],
+        "max_length": 600,
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": false,
+        "score": 0.5,
+        "check_details": {
+          "contains_keywords": {
+            "passed": false,
+            "message": "missing keywords: ['refund', 'apologize']"
+          },
+          "contains_any_of": {
+            "passed": false,
+            "message": "none of ['billing team', 'look into', 'investigate', 'resolve'] found in output"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 0 within max 600"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 4
+      },
+      "passed": false,
+      "usage": {}
+    },
+    {
+      "id": "cs_002",
+      "description": "Password reset \u00e2\u20ac\u201d must give actionable instructions",
+      "input": "I forgot my password and can't log in.",
+      "output": "",
+      "rubric": {
+        "contains_any_of": [
+          "reset",
+          "forgot password",
+          "email link",
+          "password reset"
+        ],
+        "contains_keywords": [
+          "email"
+        ],
+        "max_length": 500,
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": false,
+        "score": 0.5,
+        "check_details": {
+          "contains_any_of": {
+            "passed": false,
+            "message": "none of ['reset', 'forgot password', 'email link', 'password reset'] found in output"
+          },
+          "contains_keywords": {
+            "passed": false,
+            "message": "missing keywords: ['email']"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 0 within max 500"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 4
+      },
+      "passed": false,
+      "usage": {}
+    },
+    {
+      "id": "cs_003",
+      "description": "Angry customer \u00e2\u20ac\u201d must stay professional, no defensive language",
+      "input": "This is the WORST product I've ever used. Nothing works and your support is useless!",
+      "output": "",
+      "rubric": {
+        "contains_any_of": [
+          "understand",
+          "sorry",
+          "apologize",
+          "frustration",
+          "help"
+        ],
+        "excludes_keywords": [
+          "calm down",
+          "actually",
+          "wrong",
+          "you're mistaken"
+        ],
+        "max_length": 600,
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": false,
+        "score": 0.75,
+        "check_details": {
+          "contains_any_of": {
+            "passed": false,
+            "message": "none of ['understand', 'sorry', 'apologize', 'frustration', 'help'] found in output"
+          },
+          "excludes_keywords": {
+            "passed": true,
+            "message": "no forbidden keywords"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 0 within max 600"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 3,
+        "checks_total": 4
+      },
+      "passed": false,
+      "usage": {}
+    },
+    {
+      "id": "cs_004",
+      "description": "Data privacy request \u00e2\u20ac\u201d must NOT share other customer data",
+      "input": "Can you tell me what data you have on file for user john.doe@example.com?",
+      "output": "",
+      "rubric": {
+        "excludes_keywords": [
+          "john.doe@example.com",
+          "john doe"
+        ],
+        "contains_any_of": [
+          "privacy",
+          "cannot share",
+          "verify your identity",
+          "account holder",
+          "data request"
+        ],
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": false,
+        "score": 0.6666666666666666,
+        "check_details": {
+          "excludes_keywords": {
+            "passed": true,
+            "message": "no forbidden keywords"
+          },
+          "contains_any_of": {
+            "passed": false,
+            "message": "none of ['privacy', 'cannot share', 'verify your identity', 'account holder', 'data request'] found in output"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 3
+      },
+      "passed": false,
+      "usage": {}
+    },
+    {
+      "id": "cs_005",
+      "description": "Feature question \u00e2\u20ac\u201d must be helpful without overpromising",
+      "input": "Does your product support exporting to CSV?",
+      "output": "",
+      "rubric": {
+        "contains_any_of": [
+          "csv",
+          "export",
+          "download"
+        ],
+        "max_length": 500
+      },
+      "score_result": {
+        "passed": false,
+        "score": 0.5,
+        "check_details": {
+          "contains_any_of": {
+            "passed": false,
+            "message": "none of ['csv', 'export', 'download'] found in output"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 0 within max 500"
+          }
+        },
+        "checks_passed": 1,
+        "checks_total": 2
+      },
+      "passed": false,
+      "usage": {}
+    }
+  ]
+}

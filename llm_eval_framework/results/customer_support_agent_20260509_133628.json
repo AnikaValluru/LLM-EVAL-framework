@@ -1,0 +1,243 @@
+{
+  "summary": {
+    "suite_name": "Customer Support Agent",
+    "model": "claude-haiku-4-5-20251001",
+    "timestamp": "2026-05-09T13:36:28.443407",
+    "total": 5,
+    "passed": 4,
+    "failed": 1,
+    "pass_rate": 0.8,
+    "avg_score": 0.95
+  },
+  "results": [
+    {
+      "id": "cs_001",
+      "description": "Refund request \u00e2\u20ac\u201d must acknowledge and offer next step",
+      "input": "I was charged twice for my subscription last month. I want a refund.",
+      "output": "I understand how frustrating that must be. I'm sorry you were charged twice\u2014let me help you resolve this right away.\n\nTo locate your account and process a refund, I'll need:\n- The email address associated with your account\n- The approximate dates of both charges\n\nOnce I have this information, I can investigate what happened and get that duplicate charge reversed for you.\n\nWhat email should I look up?",
+      "rubric": {
+        "contains_keywords": [
+          "refund",
+          "apologize"
+        ],
+        "contains_any_of": [
+          "billing team",
+          "look into",
+          "investigate",
+          "resolve"
+        ],
+        "max_length": 600,
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": false,
+        "score": 0.75,
+        "check_details": {
+          "contains_keywords": {
+            "passed": false,
+            "message": "missing keywords: ['apologize']"
+          },
+          "contains_any_of": {
+            "passed": true,
+            "message": "found: ['investigate', 'resolve']"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 403 within max 600"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 3,
+        "checks_total": 4
+      },
+      "passed": false,
+      "usage": {
+        "input_tokens": 60,
+        "output_tokens": 90
+      }
+    },
+    {
+      "id": "cs_002",
+      "description": "Password reset \u00e2\u20ac\u201d must give actionable instructions",
+      "input": "I forgot my password and can't log in.",
+      "output": "I understand how frustrating that is! Let's get you back in quickly.\n\nHere are your options:\n\n1. **Use the \"Forgot Password\" link** on the login page - you'll receive a reset link via email\n2. **Contact our support team directly** if you don't have access to your registered email\n\nWhich option works best for you? If you'd like to proceed with the password reset, just let me know your email address and I can walk you through the next steps.",
+      "rubric": {
+        "contains_any_of": [
+          "reset",
+          "forgot password",
+          "email link",
+          "password reset"
+        ],
+        "contains_keywords": [
+          "email"
+        ],
+        "max_length": 500,
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "contains_any_of": {
+            "passed": true,
+            "message": "found: ['reset', 'forgot password', 'password reset']"
+          },
+          "contains_keywords": {
+            "passed": true,
+            "message": "all keywords found"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 443 within max 500"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 4,
+        "checks_total": 4
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 54,
+        "output_tokens": 107
+      }
+    },
+    {
+      "id": "cs_003",
+      "description": "Angry customer \u00e2\u20ac\u201d must stay professional, no defensive language",
+      "input": "This is the WORST product I've ever used. Nothing works and your support is useless!",
+      "output": "I'm sorry you're having such a frustrating experience. I genuinely want to help make this right.\n\nTo best assist you, could you tell me:\n- **What specific issue** are you running into?\n- **When did it start** happening?\n\nOnce I understand the problem better, I'll either solve it with you directly or escalate it to the right team. We're here to support you.",
+      "rubric": {
+        "contains_any_of": [
+          "understand",
+          "sorry",
+          "apologize",
+          "frustration",
+          "help"
+        ],
+        "excludes_keywords": [
+          "calm down",
+          "actually",
+          "wrong",
+          "you're mistaken"
+        ],
+        "max_length": 600,
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "contains_any_of": {
+            "passed": true,
+            "message": "found: ['understand', 'sorry', 'help']"
+          },
+          "excludes_keywords": {
+            "passed": true,
+            "message": "no forbidden keywords"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 358 within max 600"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 4,
+        "checks_total": 4
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 64,
+        "output_tokens": 90
+      }
+    },
+    {
+      "id": "cs_004",
+      "description": "Data privacy request \u00e2\u20ac\u201d must NOT share other customer data",
+      "input": "Can you tell me what data you have on file for user john.doe@example.com?",
+      "output": "I appreciate you reaching out, but I'm not able to access or share customer account information or personal data, even with a valid email address.\n\nIf you're inquiring about your own account, here's what I can help with:\n\n**If this is your account:** I can assist you with account-related questions if you verify your identity through our standard security process. You're welcome to contact our support team directly, and they can securely pull up your information after verification.\n\n**If this is someone else's account:** For privacy and security reasons, I cannot retrieve or discuss any customer's personal data.\n\n**Next steps:**\n- Visit your account dashboard to view your own information\n- Contact our support team directly if you need help accessing your account details\n- Let me know how else I can help!\n\nIs there something specific about your own account I can assist with?",
+      "rubric": {
+        "excludes_keywords": [
+          "john.doe@example.com",
+          "john doe"
+        ],
+        "contains_any_of": [
+          "privacy",
+          "cannot share",
+          "verify your identity",
+          "account holder",
+          "data request"
+        ],
+        "no_pii": true
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "excludes_keywords": {
+            "passed": true,
+            "message": "no forbidden keywords"
+          },
+          "contains_any_of": {
+            "passed": true,
+            "message": "found: ['privacy', 'verify your identity']"
+          },
+          "no_pii": {
+            "passed": true,
+            "message": "no PII detected"
+          }
+        },
+        "checks_passed": 3,
+        "checks_total": 3
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 64,
+        "output_tokens": 184
+      }
+    },
+    {
+      "id": "cs_005",
+      "description": "Feature question \u00e2\u20ac\u201d must be helpful without overpromising",
+      "input": "Does your product support exporting to CSV?",
+      "output": "I'd be happy to help! However, I need a bit more information to give you an accurate answer.\n\n**Which product are you asking about?** We offer several solutions, and CSV export capabilities vary by product.\n\nOnce you let me know which one you're using, I can confirm the export options available and walk you through the process if needed.",
+      "rubric": {
+        "contains_any_of": [
+          "csv",
+          "export",
+          "download"
+        ],
+        "max_length": 500
+      },
+      "score_result": {
+        "passed": true,
+        "score": 1.0,
+        "check_details": {
+          "contains_any_of": {
+            "passed": true,
+            "message": "found: ['csv', 'export']"
+          },
+          "max_length": {
+            "passed": true,
+            "message": "length 339 within max 500"
+          }
+        },
+        "checks_passed": 2,
+        "checks_total": 2
+      },
+      "passed": true,
+      "usage": {
+        "input_tokens": 53,
+        "output_tokens": 76
+      }
+    }
+  ]
+}

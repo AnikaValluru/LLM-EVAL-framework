@@ -103,7 +103,7 @@ def generate_report(results: dict, output_dir: str = "results") -> str:
     timestamp_str = datetime.now().strftime("%Y%m%d_%H%M%S")
     report_path = f"{output_dir}/{safe_name}_{timestamp_str}_report.md"
 
-    with open(report_path, "w") as f:
+    with open(report_path, "w", encoding="utf-8") as f:
         f.write(report_content)
 
     return report_path
