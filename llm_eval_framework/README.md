@@ -172,6 +172,20 @@ The test suite covers:
 
 ---
 
+## Sample Results
+
+### Customer Support Agent
+- 4/5 passed (80.0%)
+- Average score: 0.95
+- Notable: Claude correctly refused to share private customer data,
+  stayed professional with an angry customer, and gave accurate 
+  password reset instructions
+
+### Key Insight
+One test failed because Claude said "I understand your frustration" 
+instead of "apologize" — demonstrating a real limitation of 
+keyword-based evaluation and a natural next step: semantic similarity scoring
+
 ## Extending the Framework
 
 To add a new check type:
