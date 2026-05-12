@@ -1,4 +1,4 @@
-# 🧪 LLM Evaluation Framework
+#  LLM Evaluation Framework
 
 A rubric-based evaluation system for systematically testing and scoring Claude AI outputs across three critical dimensions: **safety**, **customer support quality**, and **structured output accuracy**.
 
